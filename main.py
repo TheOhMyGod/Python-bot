@@ -1,13 +1,10 @@
-from telegram import Update
-from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
+from telegram import Bot
+from telegram.ext import Updater
 
+# TOKEN = 5883434456:AAE_hP3ksro3k54qU1I794bo1brDN2u9MuQ
 
-async def hello(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-    await update.message.reply_text(f'Hello {update.effective_user.first_name}')
+bot = Bot(token='5883434456:AAE_hP3ksro3k54qU1I794bo1brDN2u9MuQ')
+updater = Updater(token='5883434456:AAE_hP3ksro3k54qU1I794bo1brDN2u9MuQ')
+dispatcher = updater.dispatcher
+updater.start_polling()
 
-
-app = ApplicationBuilder().token("5883434456:AAE_hP3ksro3k54qU1I794bo1brDN2u9MuQ").build()
-
-app.add_handler(CommandHandler("hello", hello))
-
-app.run_polling()
